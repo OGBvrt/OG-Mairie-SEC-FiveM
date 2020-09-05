@@ -57,15 +57,14 @@ end)]]
 function MaireMenuSECB(menu)
 
     local ci = NativeUI.CreateColouredItem("Carte d'identité", "", Colours.Black, Colours.White)
-
     menu:AddItem(ci)
-    local permis = NativeUI.CreateColouredItem("Permis", "", Colours.Black, Colours.White)
-    menu:AddItem(permis)
+
+--[[    local permis = NativeUI.CreateColouredItem("Permis", "", Colours.Black, Colours.White)
+    menu:AddItem(permis)]]
 
     menu.OnItemSelect = function(menu, item)
     if item == ci then
             TriggerServerEvent('AcheteCI')
-            ESX.ShowAdvancedNotification("Service d'Etat Civil", "C.I", "Une C.I a été assignée á votre nom", "CHAR_DR_FRIEDLANDER", 1)
 --[[    elseif item == permis then
                 TriggerServerEvent('Achetepermis')
                 ESX.ShowAdvancedNotification("Service d'Etat Civil", "Permis", "Un permis a été assignée á votre nom", "CHAR_DR_FRIEDLANDER", 1)]]
