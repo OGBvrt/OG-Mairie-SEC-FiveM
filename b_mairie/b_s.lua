@@ -7,12 +7,17 @@ TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
 
 RegisterNetEvent('AcheteCI')
-
 AddEventHandler('AcheteCI', function()
-
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(source)
-    xPlayer.addInventoryItem('cii', 1)
+    local cic = xPlayer.getInventoryItem('cii').count
+
+    if cic >= 1 then
+        TriggerClientEvent('esx:showNotification', source, '~b~Policier:\n~r~Désolé, nous ne pouvons vous fournir qu\'une seul C.I\n~y~(MAX 1 C.I)')
+    else
+        xPlayer.addInventoryItem('cii', 1)
+        TriggerClientEvent('esx:showNotification', source, '~b~Policier:\n~g~Eh, Voila pour vous\n~y~(MAX 1 C.I)')
+    end
 end)
 
 RegisterNetEvent('Achetepermis')
